@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Ratings Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        /* Search Bar Styling */
+        .search-container {
+            margin-bottom: 20px;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensures padding doesn't affect width */
+            transition: border-color 0.3s;
+        }
+        #searchInput:focus {
+            outline: none;
+            border-color: #009879;
+            box-shadow: 0 0 5px rgba(0, 152, 121, 0.3);
+        }
+
+        .error-msg {
+            color: #d8000c;
+            background-color: #ffbaba;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #009879;
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+            cursor: default;
+        }
+        td:nth-child(2), td:nth-child(3) {
+            text-align: right;
+        }
+        th:nth-child(2), th:nth-child(3) {
+            text-align: right;
+        }
+        /* Message when no results found */
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>US Open Ratings CALCULATED EARLY</h1>
+    <p style="text-align: center; color: #666; margin-bottom: 20px;">Beta Version; Data calculated using ratings as of December 1, 2025</p>
+    
+    <div id="error-box" class="error-msg"></div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search by name, rating, etc...">
+    </div>
+
+    <table id="ratingsTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Initial Rating</th>
+                <th>Final Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+    
+    <div id="noResults" class="no-results">No matching records found.</div>
+</div>
+
+<script>
+    // --- CSV Parsing Logic ---
+    function parseCSVLine(text) {
+        const regex = /(?:^|,)(\"(?:[^\"]+|\"\")*\"|[^,]*)/g;
+        let columns = [];
+        let match;
+        while (match = regex.exec(text)) {
+            let col = match[1];
+            if (col.length && col[0] === ',') col = col.substring(1);
+            if (col.startsWith('"') && col.endsWith('"')) {
+                col = col.substring(1, col.length - 1);
+            }
+            columns.push(col.trim());
+        }
+        return columns;
+    }
+
+    function cleanName(rawName) {
+        if (rawName.startsWith('-')) {
+            return rawName.substring(1).trim();
+        }
+        return rawName;
+    }
+
+    // --- Search Logic ---
+    function initSearch() {
+        const input = document.getElementById('searchInput');
+        const table = document.getElementById('ratingsTable');
+        const noResultsMsg = document.getElementById('noResults');
+
+        input.addEventListener('keyup', function() {
+            const filter = input.value.toLowerCase();
+            const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+            let visibleCount = 0;
+
+            for (let i = 0; i < rows.length; i++) {
+                // Get all text content from the row
+                const rowText = rows[i].textContent.toLowerCase();
+                
+                if (rowText.includes(filter)) {
+                    rows[i].style.display = "";
+                    visibleCount++;
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+
+            // Show "No Results" message if everything is hidden
+            if (visibleCount === 0 && rows.length > 0) {
+                noResultsMsg.style.display = 'block';
+            } else {
+                noResultsMsg.style.display = 'none';
+            }
+        });
+    }
+
+    // --- Data Loading ---
+    async function loadData() {
+        try {
+            const response = await fetch('final_ratings_corrected.csv');
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            
+            const data = await response.text();
+            const rows = data.split(/\r?\n/);
+            const tableBody = document.querySelector('#ratingsTable tbody');
+
+            for (let i = 1; i < rows.length; i++) {
+                if (rows[i].trim() === '') continue;
+
+                const cols = parseCSVLine(rows[i]);
+                if (cols.length >= 8) {
+                    const name = cleanName(cols[1]);
+                    const initialRating = cols[2];
+                    const finalRating = cols[6];  // Final rating is now column 6
+
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${name}</td>
+                        <td>${initialRating}</td>
+                        <td>${finalRating}</td>
+                    `;
+                    tableBody.appendChild(tr);
+                }
+            }
+            
+            // Initialize search only after data is populated
+            initSearch();
+
+        } catch (error) {
+            console.error('Error loading CSV:', error);
+            const errorBox = document.getElementById('error-box');
+            errorBox.style.display = 'block';
+            errorBox.innerHTML = `<strong>Error loading data:</strong> ${error.message}<br><br>
+            <em>Remember to use a local server (python -m http.server) to view this page.</em>`;
+        }
+    }
+
+    window.onload = loadData;
+</script>
+
+</body>
+</html>
