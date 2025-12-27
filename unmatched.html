@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Ratings Report</title>
+    <title>Unmatched Names Report</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -65,7 +65,7 @@
             border-bottom: 1px solid #ddd;
         }
         th {
-            background-color: #009879;
+            background-color: #d32f2f;
             color: white;
             font-weight: 600;
         }
@@ -76,12 +76,6 @@
             background-color: #f1f1f1;
             cursor: default;
         }
-        td:nth-child(2), td:nth-child(3) {
-            text-align: right;
-        }
-        th:nth-child(2), th:nth-child(3) {
-            text-align: right;
-        }
         /* Message when no results found */
         .no-results {
             text-align: center;
@@ -89,27 +83,41 @@
             color: #666;
             display: none;
         }
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+        .status-ambiguous {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .status-no-match {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>US Open Ratings CALCULATED EARLY</h1>
-    <p style="text-align: center; color: #666; margin-bottom: 10px;">Beta Version; Data calculated using ratings as of December 26, 2025, with 100 players as of December 1, 2025</p>
-    <p style="text-align: center; color: #666; margin-bottom: 20px;"><a href="unmatched.html" style="color: #009879; text-decoration: none;">View players with unmatched names (December 1st ratings)</a></p>
+    <h1>Unmatched Names - December 1st Ratings</h1>
+    <p style="text-align: center; color: #666; margin-bottom: 10px;">These players' ratings remain as of December 1, 2025 due to name matching issues</p>
+    <p style="text-align: center; color: #666; margin-bottom: 20px;"><a href="index.html" style="color: #d32f2f; text-decoration: none;">← Back to main ratings page</a></p>
     
     <div id="error-box" class="error-msg"></div>
 
     <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search by name, rating, etc...">
+        <input type="text" id="searchInput" placeholder="Search by name, status, etc...">
     </div>
 
-    <table id="ratingsTable">
+    <table id="unmatchedTable">
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Initial Rating</th>
-                <th>Final Rating</th>
+                <th>Status</th>
+                <th>Action Required</th>
             </tr>
         </thead>
         <tbody>
@@ -143,10 +151,23 @@
         return rawName;
     }
 
+    function formatStatus(status) {
+        if (status.includes('ambiguous_duplicate')) {
+            return '<span class="status-badge status-ambiguous">Ambiguous Duplicate</span>';
+        } else if (status.includes('no_exact_match')) {
+            return '<span class="status-badge status-no-match">No Match Found</span>';
+        }
+        return status;
+    }
+
+    function formatAction(action) {
+        return action.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    }
+
     // --- Search Logic ---
     function initSearch() {
         const input = document.getElementById('searchInput');
-        const table = document.getElementById('ratingsTable');
+        const table = document.getElementById('unmatchedTable');
         const noResultsMsg = document.getElementById('noResults');
 
         input.addEventListener('keyup', function() {
@@ -178,27 +199,27 @@
     // --- Data Loading ---
     async function loadData() {
         try {
-            const response = await fetch('final_ratings_corrected.csv');
+            const response = await fetch('unmatched_json_names.csv');
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             
             const data = await response.text();
             const rows = data.split(/\r?\n/);
-            const tableBody = document.querySelector('#ratingsTable tbody');
+            const tableBody = document.querySelector('#unmatchedTable tbody');
 
             for (let i = 1; i < rows.length; i++) {
                 if (rows[i].trim() === '') continue;
 
                 const cols = parseCSVLine(rows[i]);
-                if (cols.length >= 8) {
+                if (cols.length >= 5) {
                     const name = cleanName(cols[1]);
-                    const initialRating = cols[2];
-                    const finalRating = cols[6];  // Final rating is now column 6
+                    const status = cols[3];
+                    const action = cols[4];
 
                     const tr = document.createElement('tr');
                     tr.innerHTML = `
                         <td>${name}</td>
-                        <td>${initialRating}</td>
-                        <td>${finalRating}</td>
+                        <td>${formatStatus(status)}</td>
+                        <td>${formatAction(action)}</td>
                     `;
                     tableBody.appendChild(tr);
                 }

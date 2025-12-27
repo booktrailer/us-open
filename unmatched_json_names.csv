@@ -1,0 +1,101 @@
+json_key,json_name_example,json_player_ids_count,status,action
+chen|andy,"-Chen, Andy",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+chen|henry,"-Chen, Henry",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+chen|john,"-Chen, John",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+chen|steven,"-Chen, Steven",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+gupta|krish,"-Gupta, Krish",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+huang|leo,"-Huang, Leo",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+jin|william,"-Jin, William",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+kumar|arun,"-Kumar, Arun",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+li|william,"-Li, William",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+lin|ryan,"-Lin, Ryan",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+liu|justin,"-Liu, Justin",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+liu|maxwell,"-Liu, Maxwell",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+may|derek,"-May, Derek",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+nguyen|paul,"-Nguyen, Paul",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+rodriguez|luis,"-Rodriguez, Luis",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+wang|amy,"-Wang, Amy",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+wang|angus,"-Wang, Angus",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+wang|david,"-Wang, David",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+wang|dylan,"-Wang, Dylan",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+wang|henry,"-Wang, Henry",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+wang|jonathan,"-Wang, Jonathan",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+wang|wei,"-Wang, Wei",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+wang|xi,"-Wang, Xi",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+williams|david,"-Williams, David",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+wong|jason,"-Wong, Jason",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+wong|ryan,"-Wong, Ryan",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+wu|jerry,"-Wu, Jerry",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+wu|lucas,"-Wu, Lucas",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+wu|nathan,"-Wu, Nathan",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+yang|kevin,"-Yang, Kevin",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+zhang|aaron,"-Zhang, Aaron",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+zhang|dylan,"-Zhang, Dylan",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+zhang|eason,"-Zhang, Eason",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+zhang|kai,"-Zhang, Kai",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+zhang|kevin,"-Zhang, Kevin",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+zhao|hui,"-Zhao, Hui",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+zhao|kevin,"-Zhao, Kevin",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+zhou|ethan,"-Zhou, Ethan",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+zhu|julia,"-Zhu, Julia",1,ambiguous_duplicate_in_csv,add_alias_row_pointing_to_exact_person_or_disambiguate_manually
+a|chandra,"-A, Chandra",1,no_exact_match_in_csv,fix_name_or_add_alias
+abdul syed|musthafa,"-Abdul Syed, Musthafa",1,no_exact_match_in_csv,fix_name_or_add_alias
+banala|praveen,"-Banala, Praveen",1,no_exact_match_in_csv,fix_name_or_add_alias
+bindal|sanyam,"-Bindal, Sanyam",1,no_exact_match_in_csv,fix_name_or_add_alias
+borovik|andrey,"-Borovik, Andrey",1,no_exact_match_in_csv,fix_name_or_add_alias
+brown|dan r,"-Brown, Dan R",1,no_exact_match_in_csv,fix_name_or_add_alias
+chan|derek,"-Chan, Derek",1,no_exact_match_in_csv,fix_name_or_add_alias
+chen|paul,"-Chen, Paul",1,no_exact_match_in_csv,fix_name_or_add_alias
+chow|martin m,"-Chow, Martin M.",1,no_exact_match_in_csv,fix_name_or_add_alias
+chua|zuri mae,"-Chua, Zuri Mae",1,no_exact_match_in_csv,fix_name_or_add_alias
+cleary|andy,"-Cleary, Andy",1,no_exact_match_in_csv,fix_name_or_add_alias
+conjeevaram|indraneil,"-Conjeevaram, Indraneil",1,no_exact_match_in_csv,fix_name_or_add_alias
+deen ahmer|noor ud,"-Deen Ahmer, Noor Ud",1,no_exact_match_in_csv,fix_name_or_add_alias
+dinh|anh trung,"-Dinh, Anh-Trung",1,no_exact_match_in_csv,fix_name_or_add_alias
+farcas|vlad razvan,"-Farcas, Vlad Razvan",1,no_exact_match_in_csv,fix_name_or_add_alias
+feng|jun,"-Feng, Jun",1,no_exact_match_in_csv,fix_name_or_add_alias
+fukuhara|akio,"-Fukuhara, Akio",1,no_exact_match_in_csv,fix_name_or_add_alias
+hayes|donald b,"-Hayes, Donald B.",1,no_exact_match_in_csv,fix_name_or_add_alias
+hochman|stephen,"-Hochman, Stephen",1,no_exact_match_in_csv,fix_name_or_add_alias
+hu|christopher,"-Hu, Christopher",1,no_exact_match_in_csv,fix_name_or_add_alias
+hutchins knowles|brian,"-Hutchins-Knowles, Brian",1,no_exact_match_in_csv,fix_name_or_add_alias
+johansen|patricia,"-Johansen, Patricia",1,no_exact_match_in_csv,fix_name_or_add_alias
+k j|avinash,"-K J, Avinash",1,no_exact_match_in_csv,fix_name_or_add_alias
+krishnamurthy|akash,"-Krishnamurthy, Akash",1,no_exact_match_in_csv,fix_name_or_add_alias
+kuribayashi|tomomi,"-Kuribayashi, Tomomi",1,no_exact_match_in_csv,fix_name_or_add_alias
+lee|peter hee chul,"-Lee, Peter Hee Chul",1,no_exact_match_in_csv,fix_name_or_add_alias
+li|william yueyang,"-Li, William Yueyang",1,no_exact_match_in_csv,fix_name_or_add_alias
+lin|kenneth,"-Lin, Kenneth",1,no_exact_match_in_csv,fix_name_or_add_alias
+lin|sunny,"-Lin, Sunny",1,no_exact_match_in_csv,fix_name_or_add_alias
+makanjuola|kazeem,"-Makanjuola, Kazeem",1,no_exact_match_in_csv,fix_name_or_add_alias
+man|antonio,"-Man, Antonio",1,no_exact_match_in_csv,fix_name_or_add_alias
+martinez kahn|patty,"-Martinez-Kahn, Patty",1,no_exact_match_in_csv,fix_name_or_add_alias
+mayer|robert h,"-Mayer, Robert H.",1,no_exact_match_in_csv,fix_name_or_add_alias
+montijo|jerall,"-Montijo, Jerall",1,no_exact_match_in_csv,fix_name_or_add_alias
+musthafa|yasin,"-Musthafa, Yasin",1,no_exact_match_in_csv,fix_name_or_add_alias
+naqvi|syed a,"-Naqvi, Syed A",1,no_exact_match_in_csv,fix_name_or_add_alias
+nguyen|khoa dinh,"-Nguyen, Khoa Dinh",1,no_exact_match_in_csv,fix_name_or_add_alias
+nie|jiayi,"-Nie, Jiayi",1,no_exact_match_in_csv,fix_name_or_add_alias
+palwai|sridattha,"-Palwai, Sridattha",1,no_exact_match_in_csv,fix_name_or_add_alias
+pinnoju|suresh babu,"-Pinnoju, Suresh Babu",1,no_exact_match_in_csv,fix_name_or_add_alias
+pradhan|chinmaya,"-Pradhan, Chinmaya",1,no_exact_match_in_csv,fix_name_or_add_alias
+rahime|zakria,"-Rahime, Zakria",1,no_exact_match_in_csv,fix_name_or_add_alias
+ren|victor,"-Ren, Victor",1,no_exact_match_in_csv,fix_name_or_add_alias
+rivas|catalina,"-Rivas, Catalina",1,no_exact_match_in_csv,fix_name_or_add_alias
+roufeh|tahereh,"-Roufeh, Tahereh",1,no_exact_match_in_csv,fix_name_or_add_alias
+sanchez vilchis|jose,"-Sanchez Vilchis, Jose",1,no_exact_match_in_csv,fix_name_or_add_alias
+seemiller|daniel r,"-Seemiller, Daniel R.",1,no_exact_match_in_csv,fix_name_or_add_alias
+shen|lijing,"-Shen, Lijing",1,no_exact_match_in_csv,fix_name_or_add_alias
+souza|andre,"-Souza, André",1,no_exact_match_in_csv,fix_name_or_add_alias
+speir|jim,"-Speir, Jim",1,no_exact_match_in_csv,fix_name_or_add_alias
+tai|jian feng calvi,"-Tai, Jian Feng Calvi",1,no_exact_match_in_csv,fix_name_or_add_alias
+the nightmare|ryan,"-The Nightmare, Ryan",1,no_exact_match_in_csv,fix_name_or_add_alias
+thirumala|raghavendar,"-Thirumala, Raghavendar",1,no_exact_match_in_csv,fix_name_or_add_alias
+torres|alejandro,"-Torres, Alejandro",1,no_exact_match_in_csv,fix_name_or_add_alias
+tran|daniel,"-Tran, Daniel",1,no_exact_match_in_csv,fix_name_or_add_alias
+veneziano|ariel,"-Veneziano, Ariel",1,no_exact_match_in_csv,fix_name_or_add_alias
+wang|frank y,"-Wang, Frank Y",1,no_exact_match_in_csv,fix_name_or_add_alias
+welder|tony,"-Welder, Tony",1,no_exact_match_in_csv,fix_name_or_add_alias
+wu|garland gong,"-Wu, Garland (gong)",1,no_exact_match_in_csv,fix_name_or_add_alias
+xie|yanhua jennife,"-Xie, Yanhua (jennife",1,no_exact_match_in_csv,fix_name_or_add_alias
+zhang|licheng,"-Zhang, Licheng",1,no_exact_match_in_csv,fix_name_or_add_alias
